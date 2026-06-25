@@ -1,0 +1,10 @@
+name = "portfolio-website"
+main = "worker.js"
+compatibility_date = "2025-05-01"
+
+# Serve the static site from the repo root. The Worker (worker.js) runs only for
+# requests that do not match a static file, e.g. /api/chat. Files listed in
+# .assetsignore are not uploaded as public assets.
+[assets]
+directory = "."
+binding = "ASSETS"

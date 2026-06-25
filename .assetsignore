@@ -1,0 +1,38 @@
+# Files here are NOT uploaded as public static assets.
+# (Static-asset uploads serve files publicly, so keep server-only and source files out.)
+
+# Server-side code (runs as the Worker, must not be served publicly as a file)
+worker.js
+chat-core.js
+functions/
+
+# Config & docs
+wrangler.toml
+.assetsignore
+.gitignore
+.env.example
+.dev.vars
+SETUP.md
+README.md
+
+# Secrets — never serve a service-account key, even if one is present locally
+*service-account*.json
+google-credentials*.json
+portfolio-website-*.json
+*-*.iam.gserviceaccount.com.json
+
+# Raw source inputs (processed copies live in /assets and are served from there)
+*.docx
+*.HEIC
+Airbnb.png
+Bny.png
+Cal SOS.jpeg
+Dell.jpeg
+Kmit.jpeg
+UWM.png
+Tareesh Muluguru.pdf
+
+# Repo / tooling noise
+.git/
+node_modules/
+.DS_Store
