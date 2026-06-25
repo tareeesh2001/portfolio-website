@@ -1,0 +1,16 @@
+# Secrets — never commit
+.env
+.dev.vars
+*.local
+
+# Service account / Google credential key files (real secrets — never commit)
+*service-account*.json
+google-credentials*.json
+portfolio-website-*.json
+*-*.iam.gserviceaccount.com.json
+# Any downloaded Google service-account key tends to look like <project>-<id>.json.
+# If you add another one, list it here too.
+
+# OS / editor noise
+.DS_Store
+node_modules/

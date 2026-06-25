@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Ask about Tareesh · AI assistant</title>
+<meta name="description" content="Ask an AI assistant about Tareesh Muluguru's professional background, roles, and skills. Answers come only from his resume." />
+<meta name="robots" content="noindex" />
+<meta name="theme-color" content="#0A0E1A" />
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="chat.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <a class="brand" href="index.html">Tareesh Muluguru <span>· AI assistant</span></a>
+  <a class="back" href="index.html">
+    <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>
+    Back to site
+  </a>
+</header>
+
+<main class="shell">
+
+  <!-- GATE -->
+  <section class="gate" id="gate" aria-label="Start chat">
+    <p class="badge">AI assistant</p>
+    <h1>Ask about Tareesh's background</h1>
+    <p class="sub">A quick assistant that answers questions about Tareesh's roles, skills, and projects, using only what's in his resume.</p>
+    <form id="gate-form" novalidate>
+      <label class="field-label" for="email">Enter your email to start chatting about Tareesh's background</label>
+      <input type="email" id="email" name="email" placeholder="you@company.com" autocomplete="email" required />
+      <p class="err" id="gate-err" role="alert"></p>
+      <button type="submit" class="btn-start">
+        Start chatting
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+    <p class="privacy">
+      <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <span>Your email and questions are logged so I can follow up if relevant — no spam, ever.</span>
+    </p>
+  </section>
+
+  <!-- CHAT -->
+  <section class="chat" id="chat" aria-label="Chat with the assistant">
+    <div class="chat-intro"><span class="dot"></span> Ask about Tareesh's experience, skills, and projects.</div>
+
+    <div class="messages" id="messages" aria-live="polite"></div>
+
+    <div class="starters" id="starters">
+      <span class="label">Try asking</span>
+      <button class="chip">What's his experience with Python automation?</button>
+      <button class="chip">Tell me about his Dell role</button>
+      <button class="chip">What tools does he use for data analysis?</button>
+    </div>
+
+    <form class="composer" id="composer">
+      <textarea id="input" rows="1" placeholder="Ask a question about Tareesh's background..." aria-label="Your question"></textarea>
+      <button class="send" id="send" type="submit" aria-label="Send">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
+      </button>
+    </form>
+    <p class="composer-note">Answers come only from Tareesh's resume. The assistant won't guess about anything undocumented.</p>
+  </section>
+
+</main>
+
+<script src="chat.js" defer></script>
+</body>
+</html>
