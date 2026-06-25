@@ -19,6 +19,6 @@ binding = "ASSETS"
 # (or create it in the dashboard under Storage & Databases > KV). The namespace id
 # is not a secret, so it is fine to commit it here.
 #
-# [[kv_namespaces]]
-# binding = "CHAT_KV"
-# id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"
+[[kv_namespaces]]
+binding = "CHAT_KV"
+id = "1593091cf9294fde81abd2cf6828cdd0"
