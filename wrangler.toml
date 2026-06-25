@@ -8,3 +8,17 @@ compatibility_date = "2025-05-01"
 [assets]
 directory = "."
 binding = "ASSETS"
+
+# --- Email verification + per-user daily limit (optional) ---
+# These features turn on only when a KV namespace is bound here AND the Brevo
+# secrets (BREVO_API_KEY, BREVO_SENDER_EMAIL) are set. Until then the chat keeps
+# working with the simple email gate (no code, no limit).
+#
+# To enable: create a KV namespace, then uncomment the block below and paste its id.
+#   npx wrangler kv namespace create CHAT_KV
+# (or create it in the dashboard under Storage & Databases > KV). The namespace id
+# is not a secret, so it is fine to commit it here.
+#
+# [[kv_namespaces]]
+# binding = "CHAT_KV"
+# id = "PASTE_YOUR_KV_NAMESPACE_ID_HERE"

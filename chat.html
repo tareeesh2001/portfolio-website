@@ -45,6 +45,23 @@
     </p>
   </section>
 
+  <!-- VERIFY -->
+  <section class="gate" id="verify" aria-label="Verify your email" style="display:none;">
+    <p class="badge">Check your inbox</p>
+    <h1>Enter your code</h1>
+    <p class="sub">I sent a 6-digit code to <span id="verify-email" class="verify-email"></span>. It expires in 10 minutes.</p>
+    <form id="verify-form" novalidate>
+      <label class="field-label" for="code">Verification code</label>
+      <input type="text" id="code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="6" placeholder="123456" />
+      <p class="err" id="verify-err" role="alert"></p>
+      <button type="submit" class="btn-start">
+        Verify and start
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </button>
+    </form>
+    <p class="resend-row">Didn't get it? <button type="button" id="resend-btn" class="linklike">Resend code</button> <span id="resend-note"></span></p>
+  </section>
+
   <!-- CHAT -->
   <section class="chat" id="chat" aria-label="Chat with the assistant">
     <div class="chat-intro"><span class="dot"></span> Ask about Tareesh's experience, skills, and projects.</div>
@@ -64,7 +81,7 @@
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg>
       </button>
     </form>
-    <p class="composer-note">Answers come only from Tareesh's resume. The assistant won't guess about anything undocumented.</p>
+    <p class="composer-note">Grounded in Tareesh's resume and project history. It sticks to documented facts and will point you to the contact page rather than guess. Responses are AI-generated and may not be perfect.</p>
   </section>
 
 </main>

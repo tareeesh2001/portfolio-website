@@ -7,11 +7,18 @@
 //
 // The ASSETS binding and the assets directory are declared in wrangler.toml.
 
-import { handleChat } from './chat-core.js';
+import { handleChat, handleVerifyStart, handleVerifyCheck } from './chat-core.js';
 
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+
+    if (url.pathname === '/api/verify/start' && request.method === 'POST') {
+      return handleVerifyStart(request, env, ctx);
+    }
+    if (url.pathname === '/api/verify/check' && request.method === 'POST') {
+      return handleVerifyCheck(request, env, ctx);
+    }
 
     if (url.pathname === '/api/chat') {
       if (request.method === 'POST') {
@@ -19,7 +26,7 @@ export default {
       }
       if (request.method === 'GET') {
         return new Response(
-          JSON.stringify({ status: 'ok', message: 'POST { email, question } to use the assistant.' }),
+          JSON.stringify({ status: 'ok', message: 'POST to use the assistant.' }),
           { headers: { 'Content-Type': 'application/json' } }
         );
       }

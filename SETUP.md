@@ -86,6 +86,34 @@ If a Sheets write fails for any reason, the chat still replies — logging is be
 
 ---
 
+## 4b. Optional: email verification + per-user daily limit
+
+By default the chat uses a simple email gate (enter email, start chatting). You can optionally require visitors to verify their email with a 6-digit code, and cap each verified email to 10 questions per day. These turn on automatically once both pieces below are configured; until then the chat keeps working with the simple gate.
+
+**1. Create a Cloudflare KV namespace** (stores the codes, sessions, and daily counts). From your project folder:
+
+```
+npx wrangler kv namespace create CHAT_KV
+```
+
+It prints an `id`. Open `wrangler.toml`, uncomment the `[[kv_namespaces]]` block, and paste the id. (You can also create the namespace in the dashboard under **Storage & Databases > KV**.) The id is not a secret, so committing it is fine.
+
+**2. Set up Brevo for sending the code emails** (free, no domain needed):
+
+- Create a free account at brevo.com.
+- Go to **Senders, Domains & Dedicated IPs > Senders** and add + verify a sender email (your Gmail works — you'll click a confirmation link).
+- Go to **SMTP & API > API Keys** and create an API key.
+- In Cloudflare, add these as **runtime** Variables and secrets (same place as `OPENAI_API_KEY`):
+  - `BREVO_API_KEY` = the API key
+  - `BREVO_SENDER_EMAIL` = the sender address you verified
+  - `BREVO_SENDER_NAME` = optional display name (defaults to "Tareesh's Assistant")
+
+**3. Redeploy.** Once `CHAT_KV` is bound and the Brevo secrets are set, the gate switches to: enter email → receive a 6-digit code → enter code → chat. The daily limit (10 questions per email) also activates. Sessions last 24 hours; codes expire in 10 minutes.
+
+To change the daily limit, edit `DAILY_LIMIT` near the top of `chat-core.js`.
+
+---
+
 ## 5. Test locally (optional)
 
 To run the function locally you need the Cloudflare Wrangler CLI:

@@ -67,14 +67,20 @@ a{color:var(--primary);text-decoration:none;}
 .field-label{
   font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--text-lo);
 }
-.gate input[type="email"]{
+.gate input[type="email"],.gate input[type="text"]{
   width:100%;padding:14px 16px;border-radius:12px;
   background:var(--surface);border:1px solid var(--border-strong);color:var(--text-hi);
   font-family:var(--body);font-size:16px;transition:border-color .2s var(--ease),box-shadow .2s var(--ease);
 }
-.gate input[type="email"]::placeholder{color:#64748B;}
-.gate input[type="email"]:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(59,130,246,.18);}
+.gate input[type="email"]::placeholder,.gate input[type="text"]::placeholder{color:#64748B;}
+.gate input[type="email"]:focus,.gate input[type="text"]:focus{outline:none;border-color:var(--primary);box-shadow:0 0 0 3px rgba(59,130,246,.18);}
 .gate input.invalid{border-color:#f87171;box-shadow:0 0 0 3px rgba(248,113,113,.16);}
+#code{font-family:var(--mono);font-size:22px;letter-spacing:8px;text-align:center;}
+.verify-email{font-family:var(--mono);color:var(--secondary);font-size:13px;}
+.resend-row{margin-top:18px;font-size:13.5px;color:var(--text-lo);}
+.linklike{background:none;border:none;color:var(--primary);font-family:var(--body);font-size:13.5px;font-weight:600;cursor:pointer;padding:0;}
+.linklike:hover{text-decoration:underline;}
+#resend-note{color:#6ee7b7;margin-left:6px;}
 .err{color:#fca5a5;font-size:13px;min-height:18px;margin:0;}
 .btn-start{
   margin-top:4px;width:100%;padding:14px 18px;border-radius:12px;border:none;cursor:pointer;
