@@ -311,6 +311,39 @@
   .reveal{opacity:0;transform:translateY(26px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
   .reveal.in{opacity:1;transform:none;}
 
+  /* ---------- Roaming "ask about me" stick figure ---------- */
+  .roamer{
+    position:fixed;left:0;bottom:14px;z-index:40;
+    display:flex;flex-direction:column;align-items:center;gap:7px;
+    width:64px;text-decoration:none;cursor:pointer;
+    transform:translateX(20px);will-change:transform;
+  }
+  .roamer-bubble{
+    font-family:var(--body);font-size:11px;font-weight:600;color:var(--secondary);
+    background:var(--surface);border:1px solid rgba(167,139,250,.4);
+    padding:4px 10px;border-radius:999px;white-space:nowrap;position:relative;
+    box-shadow:0 8px 20px rgba(0,0,0,.45);transition:transform .2s var(--ease);
+  }
+  .roamer-bubble::after{
+    content:"";position:absolute;left:50%;bottom:-4px;width:8px;height:8px;
+    background:var(--surface);border-right:1px solid rgba(167,139,250,.4);border-bottom:1px solid rgba(167,139,250,.4);
+    transform:translateX(-50%) rotate(45deg);
+  }
+  .roamer-sprite{display:block;transition:transform .12s linear;}
+  .roamer-sprite svg{display:block;width:40px;height:54px;overflow:visible;}
+  .roamer .stick{fill:none;stroke:var(--secondary);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
+  .roamer .head{fill:none;stroke:var(--secondary);stroke-width:2.6;}
+  .roamer .eye{fill:var(--secondary);}
+  .roamer .arm,.roamer .leg{transform-box:fill-box;transform-origin:top center;}
+  .roamer:hover .roamer-bubble,.roamer:focus-visible .roamer-bubble{transform:translateY(-3px);}
+  .roamer:hover .roamer-sprite svg,.roamer:focus-visible .roamer-sprite svg{filter:drop-shadow(0 0 7px rgba(167,139,250,.65));}
+  .roamer:focus-visible{outline:none;}
+  .roamer:focus-visible .roamer-bubble{outline:2px solid var(--primary);outline-offset:3px;}
+  /* limbs swing only while walking (JS adds .roaming) */
+  .roamer.roaming .leg1,.roamer.roaming .arm2{animation:limbSwing .46s infinite alternate ease-in-out;}
+  .roamer.roaming .leg2,.roamer.roaming .arm1{animation:limbSwing .46s infinite alternate-reverse ease-in-out;}
+  @keyframes limbSwing{from{transform:rotate(15deg);}to{transform:rotate(-15deg);}}
+
   /* ---------- Responsive ---------- */
   @media (max-width:900px){
     :root{--pad-section:84px;}
@@ -330,10 +363,14 @@
   @media (max-width:480px){
     .stats{grid-template-columns:1fr;}
     body{font-size:16px;}
+    .roamer{width:54px;}
+    .roamer-sprite svg{width:34px;height:46px;}
+    .roamer-bubble{font-size:10px;padding:3px 8px;}
   }
 
   @media (prefers-reduced-motion:reduce){
     html{scroll-behavior:auto;}
     .reveal{opacity:1;transform:none;transition:none;}
     *{transition:none !important;}
+    .roamer .leg,.roamer .arm{animation:none !important;}
   }

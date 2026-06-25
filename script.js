@@ -72,3 +72,47 @@
     }, { threshold: 0.6 });
     nums.forEach(function(el){ numIO.observe(el); });
   }
+
+  // Roaming "ask about me" stick figure
+  (function () {
+    var roamer = document.getElementById('roamer');
+    if (!roamer) return;
+    var sprite = roamer.querySelector('.roamer-sprite');
+
+    if (reduce) {
+      // Respect reduced motion: park it, no walking.
+      roamer.style.transform = 'translateX(18px)';
+      return;
+    }
+
+    var x = 22, dir = 1, speed = 0.85, moving = true;
+
+    function spriteWidth() { return roamer.offsetWidth || 64; }
+
+    function step() {
+      if (moving) {
+        var maxX = Math.max(16, window.innerWidth - spriteWidth() - 8);
+        x += speed * dir;
+        if (x >= maxX) { x = maxX; dir = -1; }
+        else if (x <= 12) { x = 12; dir = 1; }
+        roamer.style.transform = 'translateX(' + x + 'px)';
+        sprite.style.transform = dir < 0 ? 'scaleX(-1)' : 'scaleX(1)';
+      }
+      requestAnimationFrame(step);
+    }
+
+    function pause() { moving = false; roamer.classList.remove('roaming'); }
+    function resume() { moving = true; roamer.classList.add('roaming'); }
+
+    // Pause (and stop the walk cycle) while hovered or focused so it's easy to click.
+    roamer.addEventListener('mouseenter', pause);
+    roamer.addEventListener('mouseleave', resume);
+    roamer.addEventListener('focus', pause);
+    roamer.addEventListener('blur', resume);
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) pause(); else resume();
+    });
+
+    roamer.classList.add('roaming');
+    requestAnimationFrame(step);
+  })();
