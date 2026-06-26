@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=4" />
+<link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body>
 
@@ -59,15 +59,25 @@
               <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4"/><path d="M5 19h14"/></svg>
               Download résumé
             </a>
-            <a href="chat.html" target="_blank" rel="noopener" class="btn btn-ai-hero">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 3l1.6 4.6L18 9l-4.4 1.4L12 15l-1.6-4.6L6 9l4.4-1.4z"/><circle cx="18.5" cy="17.5" r="1.4" fill="currentColor" stroke="none"/></svg>
-              Ask my AI assistant
-            </a>
           </div>
         </div>
         <div class="avatar-wrap reveal">
           <div class="avatar">
             <img src="assets/avatar.jpg" alt="Tareesh Muluguru" />
+            <a class="ai-sticker" href="chat.html" target="_blank" rel="noopener" aria-label="Ask my AI assistant about Tareesh">
+              <span class="ai-sticker-bot">
+                <svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true">
+                  <line x1="20" y1="9" x2="20" y2="5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/>
+                  <circle cx="20" cy="4" r="2" fill="#fff"/>
+                  <rect x="9" y="9" width="22" height="18" rx="7" fill="#2a235c" stroke="#fff" stroke-width="1.4"/>
+                  <rect x="13" y="13" width="14" height="10" rx="5" fill="#1a1340"/>
+                  <circle class="bot-eye" cx="17" cy="18" r="1.9" fill="#fff"/>
+                  <circle class="bot-eye" cx="23" cy="18" r="1.9" fill="#fff"/>
+                </svg>
+              </span>
+              <span class="ai-sticker-title">Ask my AI</span>
+              <span class="ai-sticker-sub">it doesn't bite</span>
+            </a>
           </div>
         </div>
       </div>
@@ -507,21 +517,6 @@
 
 </main>
 
-<!-- Floating AI assistant launcher -->
-<a id="ai-launcher" class="ai-launcher" href="chat.html" target="_blank" rel="noopener" aria-label="Ask my AI assistant about Tareesh">
-  <span class="ai-launcher-avatar">
-    <svg width="24" height="24" viewBox="0 0 40 40" aria-hidden="true">
-      <line x1="20" y1="9" x2="20" y2="5" stroke="#a78bfa" stroke-width="1.6" stroke-linecap="round"/>
-      <circle cx="20" cy="4" r="2" fill="#a78bfa"/>
-      <rect x="9" y="9" width="22" height="18" rx="7" fill="#1a2440" stroke="#a78bfa" stroke-width="1.4"/>
-      <rect x="13" y="13" width="14" height="10" rx="5" fill="#080c18"/>
-      <circle class="bot-eye" cx="17" cy="18" r="1.9" fill="#c4b5fd"/>
-      <circle class="bot-eye" cx="23" cy="18" r="1.9" fill="#c4b5fd"/>
-    </svg>
-  </span>
-  <span class="ai-launcher-label">Ask me anything</span>
-</a>
-
 <footer>
   <div class="foot-inner">
     <span>© <span id="year"></span> Tareesh Muluguru</span>
@@ -529,7 +524,7 @@
   </div>
 </footer>
 
-<script src="script.js?v=4" defer></script>
+<script src="script.js?v=5" defer></script>
 
 </body>
 </html>
