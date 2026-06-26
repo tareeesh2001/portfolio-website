@@ -330,19 +330,20 @@
     transform:translateX(-50%) rotate(45deg);
   }
   .roamer-sprite{display:block;transition:transform .12s linear;}
-  .roamer-sprite svg{display:block;width:40px;height:54px;overflow:visible;}
-  .roamer .stick{fill:none;stroke:var(--secondary);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round;}
-  .roamer .head{fill:none;stroke:var(--secondary);stroke-width:2.6;}
-  .roamer .eye{fill:var(--secondary);}
-  .roamer .arm,.roamer .leg{transform-box:fill-box;transform-origin:top center;}
+  .roamer-sprite svg{display:block;width:46px;height:auto;overflow:visible;animation:botBob 1.5s ease-in-out infinite;filter:drop-shadow(0 6px 14px rgba(167,139,250,.28));}
   .roamer:hover .roamer-bubble,.roamer:focus-visible .roamer-bubble{transform:translateY(-3px);}
-  .roamer:hover .roamer-sprite svg,.roamer:focus-visible .roamer-sprite svg{filter:drop-shadow(0 0 7px rgba(167,139,250,.65));}
+  .roamer:hover .roamer-sprite svg,.roamer:focus-visible .roamer-sprite svg{filter:drop-shadow(0 0 12px rgba(167,139,250,.6));}
   .roamer:focus-visible{outline:none;}
   .roamer:focus-visible .roamer-bubble{outline:2px solid var(--primary);outline-offset:3px;}
-  /* limbs swing only while walking (JS adds .roaming) */
-  .roamer.roaming .leg1,.roamer.roaming .arm2{animation:limbSwing .46s infinite alternate ease-in-out;}
-  .roamer.roaming .leg2,.roamer.roaming .arm1{animation:limbSwing .46s infinite alternate-reverse ease-in-out;}
-  @keyframes limbSwing{from{transform:rotate(15deg);}to{transform:rotate(-15deg);}}
+  /* idle "alive" animations */
+  .roamer .bot-pulse{transform-box:fill-box;transform-origin:center;animation:botPulse 1.7s ease-in-out infinite;}
+  .roamer .bot-eye{transform-box:fill-box;transform-origin:center;animation:botBlink 4.5s infinite;}
+  .roamer .bot-arm{transform-box:fill-box;transform-origin:top center;}
+  .roamer:hover .bot-arm,.roamer:focus-visible .bot-arm{animation:botWave .5s ease-in-out infinite;}
+  @keyframes botBob{0%,100%{transform:translateY(0);}50%{transform:translateY(-3px);}}
+  @keyframes botPulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.45;transform:scale(.7);}}
+  @keyframes botBlink{0%,93%,100%{transform:scaleY(1);}96%{transform:scaleY(.12);}}
+  @keyframes botWave{0%,100%{transform:rotate(10deg);}50%{transform:rotate(-22deg);}}
 
   /* ---------- Responsive ---------- */
   @media (max-width:900px){
@@ -372,5 +373,5 @@
     html{scroll-behavior:auto;}
     .reveal{opacity:1;transform:none;transition:none;}
     *{transition:none !important;}
-    .roamer .leg,.roamer .arm{animation:none !important;}
+    .roamer-sprite svg,.roamer .bot-pulse,.roamer .bot-eye,.roamer .bot-arm{animation:none !important;}
   }

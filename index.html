@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=2" />
+<link rel="stylesheet" href="styles.css?v=3" />
 </head>
 <body>
 
@@ -507,16 +507,35 @@
 <a id="roamer" class="roamer" href="chat.html" target="_blank" rel="noopener" aria-label="Ask my AI assistant about Tareesh">
   <span class="roamer-bubble">Ask about me</span>
   <span class="roamer-sprite" aria-hidden="true">
-    <svg viewBox="0 0 44 60" xmlns="http://www.w3.org/2000/svg">
-      <circle class="head" cx="22" cy="9" r="7"/>
-      <circle class="eye" cx="19.5" cy="8" r="1"/>
-      <circle class="eye" cx="24.5" cy="8" r="1"/>
-      <path class="stick" d="M18.5 11.4 Q22 14 25.5 11.4"/>
-      <line class="stick" x1="22" y1="16" x2="22" y2="38"/>
-      <line class="stick arm arm1" x1="22" y1="22" x2="12" y2="30"/>
-      <line class="stick arm arm2" x1="22" y1="22" x2="32" y2="30"/>
-      <line class="stick leg leg1" x1="22" y1="38" x2="14" y2="54"/>
-      <line class="stick leg leg2" x1="22" y1="38" x2="30" y2="54"/>
+    <svg viewBox="0 0 60 72" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="botBody" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stop-color="#222c4d"/><stop offset="1" stop-color="#121a33"/>
+        </linearGradient>
+        <linearGradient id="botEye" x1="0" y1="0" x2="1" y2="1">
+          <stop offset="0" stop-color="#c4b5fd"/><stop offset="1" stop-color="#60a5fa"/>
+        </linearGradient>
+        <radialGradient id="botEyeGlow" cx="50%" cy="50%" r="50%">
+          <stop offset="0" stop-color="#a78bfa" stop-opacity=".8"/><stop offset="1" stop-color="#a78bfa" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect x="21" y="55" width="7" height="6" rx="3" fill="#121a33"/>
+      <rect x="32" y="55" width="7" height="6" rx="3" fill="#121a33"/>
+      <rect class="bot-arm-l" x="7.5" y="40" width="6" height="14" rx="3" fill="url(#botBody)" stroke="rgba(167,139,250,.3)" stroke-width="1"/>
+      <rect class="bot-arm" x="46.5" y="40" width="6" height="14" rx="3" fill="url(#botBody)" stroke="rgba(167,139,250,.3)" stroke-width="1"/>
+      <rect x="16" y="38" width="28" height="19" rx="9" fill="url(#botBody)" stroke="rgba(167,139,250,.4)" stroke-width="1.5"/>
+      <circle cx="30" cy="47" r="2.2" fill="#60a5fa"/>
+      <circle cx="30" cy="47" r="4" fill="#60a5fa" opacity=".25"/>
+      <line x1="30" y1="12" x2="30" y2="6" stroke="rgba(167,139,250,.7)" stroke-width="1.8" stroke-linecap="round"/>
+      <circle class="bot-pulse" cx="30" cy="4.5" r="5" fill="url(#botEyeGlow)"/>
+      <circle class="bot-pulse" cx="30" cy="4.5" r="2.6" fill="#a78bfa"/>
+      <rect x="11" y="11" width="38" height="29" rx="11" fill="url(#botBody)" stroke="rgba(167,139,250,.5)" stroke-width="1.6"/>
+      <rect x="16" y="17" width="28" height="16" rx="7.5" fill="#080c18"/>
+      <circle cx="24" cy="25.5" r="4.5" fill="url(#botEyeGlow)"/>
+      <circle cx="36" cy="25.5" r="4.5" fill="url(#botEyeGlow)"/>
+      <circle class="bot-eye" cx="24" cy="25.5" r="2.7" fill="url(#botEye)"/>
+      <circle class="bot-eye" cx="36" cy="25.5" r="2.7" fill="url(#botEye)"/>
+      <path d="M26 30.5 Q30 33 34 30.5" fill="none" stroke="#7c8bb8" stroke-width="1.2" stroke-linecap="round"/>
     </svg>
   </span>
 </a>
@@ -528,7 +547,7 @@
   </div>
 </footer>
 
-<script src="script.js?v=2" defer></script>
+<script src="script.js?v=3" defer></script>
 
 </body>
 </html>
