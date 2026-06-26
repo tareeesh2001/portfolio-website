@@ -33,7 +33,16 @@ export default {
       return new Response('Method not allowed', { status: 405 });
     }
 
-    // Serve the static portfolio site (index.html, chat.html, css/js, assets, ...)
-    return env.ASSETS.fetch(request);
+    // Serve the static portfolio site. Force HTML pages to revalidate so a new
+    // deploy shows up on a normal refresh. CSS/JS are versioned via ?v= and can
+    // still be cached normally.
+    const assetRes = await env.ASSETS.fetch(request);
+    const ct = assetRes.headers.get('content-type') || '';
+    if (ct.indexOf('text/html') !== -1) {
+      const r = new Response(assetRes.body, assetRes);
+      r.headers.set('Cache-Control', 'no-cache');
+      return r;
+    }
+    return assetRes;
   }
 };
